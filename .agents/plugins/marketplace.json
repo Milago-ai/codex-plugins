@@ -1,0 +1,20 @@
+{
+  "name": "milago",
+  "interface": {
+    "displayName": "Milago"
+  },
+  "plugins": [
+    {
+      "name": "milago",
+      "source": {
+        "source": "local",
+        "path": "./plugins/milago"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

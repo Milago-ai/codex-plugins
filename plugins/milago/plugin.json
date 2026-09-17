@@ -1,0 +1,22 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "milago",
+  "version": "1.0.0",
+  "description": "Your meetings, in Codex: search transcripts and summaries, list the tasks that came out of them, and pick up board tasks with the decision and the exact moment in the meeting that created them.",
+  "author": {
+    "name": "Milago",
+    "url": "https://milago.ai"
+  },
+  "homepage": "https://milago.ai/docs/mcp",
+  "repository": "https://github.com/Milago-ai/codex-plugins",
+  "license": "MIT",
+  "keywords": ["meetings", "notetaker", "tasks", "action-items", "transcripts", "mcp"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Milago",
+        "category": "Productivity"
+      }
+    }
+  }
+}
