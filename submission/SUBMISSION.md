@@ -38,12 +38,7 @@ Everything below maps to a tab of the submission form. Copy in order.
 | Domain verification | milago.ai — add the portal's TXT record at the DNS host (Route 53) |
 | Alternative auth | Bearer API key (`mk_live_…`, created under Settings → API Keys) — documented for CLI/headless use, not the directory path |
 
-**Known blocker to clear before submitting:** the production WAF (`milago-prod-waf`, on the ALB)
-returns a bare 403 to `POST /oauth/register` whenever the body contains a loopback redirect URI
-(`http://localhost:…`, `http://127.0.0.1:…`, private IPs). OpenAI's MCP check and every CLI
-client register with a loopback callback, so registration must be allowed through for that path
-(exclude the SSRF/loopback rule for `POST /oauth/register`, or allow-list the path). Verified
-2026-09-17: `https://…` and `cursor://` callbacks register fine; loopback ones get the ALB 403.
+**Edge note (resolved 2026-09-17):** the production WAF (`milago-prod-waf`, AWS Common Rule Set) used to return a bare 403 for OAuth requests carrying a loopback redirect URI (`http://localhost:…`), which every CLI client and OpenAI’s MCP check use. The Common rule group now has a scope-down that skips paths starting with `/oauth/` (`AWSBadInputs` and `RateLimit` still apply). Verified: `codex mcp login` completes end to end against `https://milago.ai/api/mcp`.
 
 ### Tool annotations (required: `readOnlyHint`, `openWorldHint`, `destructiveHint` on every tool)
 
