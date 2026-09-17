@@ -46,8 +46,8 @@ Served by `tools/list` today (`apps/web/src/app/api/mcp/route.ts`):
 
 | Tool | readOnlyHint | destructiveHint | openWorldHint |
 |---|---|---|---|
-| search_meetings, get_meeting_summary, get_pending_tasks, get_sprint_tasks, search_knowledge, get_design_feedback | true | false | false |
-| ask_milago, create_task, update_task_status, start_task_run, post_task_progress, submit_task_result, log_completion | false | false | false |
+| search_meetings, get_meeting_summary, get_pending_tasks, get_sprint_tasks, search_knowledge, get_design_feedback, ask_milago | true | false | false |
+| create_task, update_task_status, start_task_run, post_task_progress, submit_task_result, log_completion | false | false | false |
 
 `destructiveHint` is false everywhere because no tool deletes or overwrites user data (writes are
 additive); `openWorldHint` is false because every tool operates only on the caller's own Milago
@@ -116,5 +116,4 @@ API-key alternative for headless use.
 
 ## Assets
 
-- `assets/logo-512.png` — export from the app's `public/logo.png` at 512×512 on a transparent
-  background before uploading (not committed here; generate at submission time).
+- `assets/logo-512.png` — committed: the app's `public/logo.png` (349×256) centred on a 512×512 transparent canvas. Replace with a vector export if one turns up.
